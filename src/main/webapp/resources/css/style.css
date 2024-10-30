@@ -1,0 +1,49 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	background-color: #f0f0f0;
+}
+
+header, footer {
+	width: 100%;
+	background-color: #333;
+	color: white;
+	padding: 50px;
+	text-align: center;
+}
+
+main {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 300px;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	background-color: #fff;
+	border-radius: 10px;
+}
+
+h1, input {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.form-row {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+}
+
+button {
+	align-self: flex-end;
+}

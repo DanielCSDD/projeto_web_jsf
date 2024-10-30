@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" href="../../resources/img/icon-cadastro.png"/>
+    <title>Contatos Web - Login</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+    <header>
+        <h:outputText value="Bem-vindo, #{loginBean.usuarioAutenticado}" rendered="#{loginBean.logado}"/>
+    </header>
+    <main>
+        <ui:insert name="content" />
+    </main>
+    <footer>
+        <ui:insert name="footer" />
+    </footer>
+</h:body>
+</html>
