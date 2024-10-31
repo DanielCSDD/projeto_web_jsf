@@ -6,19 +6,33 @@ html, body {
 	background-color: #f0f0f0;
 }
 
+.layout {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	height: 100%;
+	width: 100%;
+}
+
 header, footer {
 	width: 100%;
 	background-color: #333;
 	color: white;
-	padding: 50px;
+	padding: 10px;
 	text-align: center;
 }
 
+header .header-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+
 main {
-	flex: 1;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex: 1;
 }
 
 .login-container {
@@ -44,6 +58,19 @@ h1, input {
 	width: 100%;
 }
 
-button {
-	align-self: flex-end;
+.logout-button {
+	margin-left: auto;
+}
+
+.black-button {
+	background-color: black;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	text-align: center;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 5px;
 }
