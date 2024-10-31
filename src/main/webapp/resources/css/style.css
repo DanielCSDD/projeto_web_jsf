@@ -180,3 +180,118 @@ main {
 .logout-button:hover {
 	background-color: #c9302c; /* Cor no estado hover */
 }
+
+/* Estilos para a página de formulário de cadastro */
+.form-page {
+	display: flex; /* Define o display como flex para alinhar o conteúdo */
+	justify-content: center; /* Centraliza horizontalmente */
+	align-items: flex-start; /* Alinha ao topo */
+	height: calc(100vh - 80px); /* Ajusta a altura para considerar o cabeçalho e o rodapé */
+	margin-top: 20px; /* Margem superior */
+	background-color: #f0f0f0; /* Cor de fundo */
+}
+
+/* Container do formulário de cadastro */
+.form-container {
+	display: flex; /* Define o display como flex para alinhar o conteúdo */
+	flex-direction: column; /* Organiza os elementos em coluna */
+	justify-content: center; /* Centraliza o conteúdo verticalmente */
+	align-items: center; /* Centraliza o conteúdo horizontalmente */
+	width: 400px; /* Largura do container */
+	padding: 20px; /* Adiciona padding interno */
+	box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Adiciona uma sombra para destacar o container */
+	background-color: #fff; /* Cor de fundo do container */
+	border-radius: 10px; /* Bordas arredondadas */
+}
+
+/* Estilos para os campos de entrada */
+.form-container h1, .form-container .input-field {
+	width: 100%; /* Largura total do elemento */
+	margin-bottom: 10px; /* Espaçamento inferior */
+}
+
+/* Container para os botões do formulário */
+.form-buttons {
+	display: flex; /* Define o display como flex para alinhar os botões */
+	justify-content: space-between; /* Distribui os botões */
+	width: 100%; /* Largura total */
+}
+
+/* Estilos para o botão Limpar */
+.clear-button {
+	background-color: #d9534f; /* Cor de fundo do botão Limpar */
+	color: #fff; /* Cor do texto */
+	border: none; /* Remove a borda */
+	padding: 10px 20px; /* Padding interno */
+	cursor: pointer; /* Cursor de mãozinha */
+	border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Estilos para o botão Salvar */
+.save-button {
+	background-color: #5cb85c; /* Cor de fundo do botão Salvar */
+	color: #fff; /* Cor do texto */
+	border: none; /* Remove a borda */
+	padding: 10px 20px; /* Padding interno */
+	cursor: pointer; /* Cursor de mãozinha */
+	border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Estilos para a página de novo contato */
+.new-contact-page {
+	display: flex; /* Define o display como flex para alinhar o conteúdo */
+	justify-content: center; /* Centraliza horizontalmente */
+	align-items: flex-start; /* Alinha ao topo */
+	width: 100%;
+	margin-top: 20px; /* Espaçamento superior para separar do cabeçalho */
+}
+
+/* Container do formulário de novo contato */
+.new-contact-container {
+	display: flex; /* Define o display como flex para alinhar o conteúdo */
+	flex-direction: column; /* Organiza os elementos em coluna */
+	justify-content: center; /* Centraliza o conteúdo verticalmente */
+	align-items: center; /* Centraliza o conteúdo horizontalmente */
+	width: 300px; /* Largura do container */
+	padding: 20px; /* Adiciona padding interno */
+	box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Adiciona uma sombra para destacar o container */
+	background-color: #fff; /* Cor de fundo do container */
+	border-radius: 10px; /* Bordas arredondadas */
+}
+
+/* Estilos para o título e os campos de entrada */
+.new-contact-container h1, .new-contact-container .input-field {
+	width: 100%; /* Largura total do elemento */
+	margin-bottom: 10px; /* Espaçamento inferior */
+}
+
+/* Estilos para os botões */
+.form-row {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+}
+
+.save-button {
+	background-color: #4CAF50; /* Cor de fundo do botão */
+	color: #fff; /* Cor do texto do botão */
+	border: none; /* Remove a borda padrão */
+	padding: 10px 20px; /* Padding interno do botão */
+	cursor: pointer; /* Cursor de mãozinha ao passar sobre o botão */
+	border-radius: 5px; /* Bordas arredondadas */
+	margin-right: 5px; /* Espaçamento à direita */
+}
+
+.clear-button {
+	background-color: #f0ad4e; /* Cor de fundo do botão */
+	color: #fff; /* Cor do texto do botão */
+	border: none; /* Remove a borda padrão */
+	padding: 10px 20px; /* Padding interno do botão */
+	cursor: pointer; /* Cursor de mãozinha ao passar sobre o botão */
+	border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Estilos para os botões no estado hover */
+.save-button:hover, .clear-button:hover {
+	opacity: 0.8; /* Reduz a opacidade para dar efeito de hover */
+}
