@@ -5,24 +5,26 @@
 	  xmlns:p="http://primefaces.org/ui">
 <ui:composition template="/WEB-INF/template/template.xhtml">
 	<ui:define name="content">
-		<div class="login-container">
-			<h1>Login</h1>
-			<h:form>
-				<h:panelGrid columns="2">
-					<h:outputLabel for="username" value="Username:" />
-					<h:inputText id="username" value="#{loginBean.username}" />
-					<h:outputLabel for="password" value="Password:" />
-					<h:inputSecret id="password" value="#{loginBean.password}" />
-				</h:panelGrid>
-				<div class="form-row">
-					<p:commandButton
-							id="btn-login"
-							icon="pi pi-users"
-							title="Save"
-							action="#{loginBean.login}"/>
-					<p:tooltip for="btn-login" value="Login" position="top"/>
-				</div>
-			</h:form>
+		<div class="login-page">
+			<div class="login-container">
+				<h1>Login</h1>
+				<h:form>
+					<h:panelGrid columns="2">
+						<h:outputLabel for="username" value="Username:" />
+						<h:inputText id="username" value="#{loginBean.username}" />
+						<h:outputLabel for="password" value="Password:" />
+						<h:inputSecret id="password" value="#{loginBean.password}" />
+					</h:panelGrid>
+					<div class="form-row">
+						<p:commandButton
+								id="btn-login"
+								icon="pi pi-users"
+								title="Save"
+								action="#{loginBean.login}"/>
+						<p:tooltip for="btn-login" value="Login" position="top"/>
+					</div>
+				</h:form>
+			</div>
 		</div>
 	</ui:define>
 </ui:composition>

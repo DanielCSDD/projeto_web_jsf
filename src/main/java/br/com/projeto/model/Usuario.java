@@ -2,6 +2,7 @@ package br.com.projeto.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -18,6 +19,8 @@ public class Usuario {
     @OneToOne
     @JoinColumn(name = "id_login")
     private Login login;
+    @OneToMany
+    private List<Contato> contatos;
 
     public Long getId() {
         return id;
@@ -51,16 +54,24 @@ public class Usuario {
         this.login = login;
     }
 
+    public List<Contato> getContatos() {
+        return contatos;
+    }
+
+    public void setContatos(List<Contato> contatos) {
+        this.contatos = contatos;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuario usuario = (Usuario) o;
-        return Objects.equals(id, usuario.id) && Objects.equals(nome, usuario.nome) && Objects.equals(email, usuario.email) && Objects.equals(login, usuario.login);
+        return Objects.equals(id, usuario.id) && Objects.equals(nome, usuario.nome) && Objects.equals(email, usuario.email) && Objects.equals(login, usuario.login) && Objects.equals(contatos, usuario.contatos);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, email, login);
+        return Objects.hash(id, nome, email, login, contatos);
     }
 }

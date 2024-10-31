@@ -75,6 +75,10 @@ public class LoginBean implements Serializable {
         return this.loginAutenticado.getUsuario().getNome();
     }
 
+    public Usuario getUsuarioLogado() {
+        return this.loginAutenticado.getUsuario();
+    }
+
     public String login() {
         this.loginAutenticado = this.loginDAO.findByUsername(this.username);
         logger.info("Tentando login com usuário: " + loginAutenticado.getUsername());

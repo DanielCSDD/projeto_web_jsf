@@ -1,26 +1,60 @@
-html, body {
+/* Fonte bonita para a aplicação */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body, html {
 	height: 100%;
 	margin: 0;
+	font-family: 'Roboto', sans-serif; /* Estilo de fonte */
 	display: flex;
 	flex-direction: column;
 	background-color: #f0f0f0;
 }
 
-header, footer {
+/* Estilos para o cabeçalho */
+header {
+	height: 50px; /* Altura do cabeçalho */
 	width: 100%;
 	background-color: #333;
 	color: white;
-	padding: 50px;
 	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
 }
 
+/* Estilos para o rodapé */
+footer {
+	height: 30px; /* Altura do rodapé */
+	width: 100%;
+	background-color: #333;
+	color: white;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 5px;
+}
+
+/* Container para o conteúdo principal */
 main {
 	flex: 1;
+	display: block;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden; /* Remove barras de rolagem */
+}
+
+/* Estilos para a tela de login */
+.login-page {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	width: 100%;
+	height: calc(100vh - 80px); /* Ajusta a altura para considerar o cabeçalho e o rodapé */
 }
 
+/* Container do formulário de login */
 .login-container {
 	display: flex;
 	flex-direction: column;
@@ -33,17 +67,68 @@ main {
 	border-radius: 10px;
 }
 
-h1, input {
+/* Estilos para o título e os campos de entrada */
+.login-container h1, .login-container .input-field {
 	width: 100%;
 	margin-bottom: 10px;
 }
 
-.form-row {
-	display: flex;
-	justify-content: flex-end;
+/* Estilos para o botão */
+.login-container .login-button {
+	align-self: flex-end;
+	background-color: #333;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+/* Estilos para o botão no estado hover */
+.login-container .login-button:hover {
+	background-color: #555;
+}
+
+/* Estilos adicionais para a página home */
+
+/* Classe para a página home */
+.home-page {
+	display: flex; /* Define o display como flex para alinhar o conteúdo */
+	flex-direction: column; /* Organiza os elementos em coluna */
+	align-items: center; /* Centraliza horizontalmente */
+	margin-top: 20px; /* Adiciona margem superior de 20px */
+	padding-top: 50px; /* Espaçamento superior para deslocar o conteúdo abaixo do cabeçalho */
 	width: 100%;
 }
 
-button {
-	align-self: flex-end;
+/* Estilos para o container principal da home */
+.home-container {
+	width: 80%; /* Largura do container */
+	text-align: center; /* Centraliza o texto */
+}
+
+/* Estilos para o título da tabela */
+.table-title {
+	font-size: 24px; /* Tamanho da fonte */
+	font-weight: bold; /* Texto em negrito */
+	margin: 20px 0; /* Margens superior e inferior */
+}
+
+/* Estilos para a tabela */
+.top-table {
+	width: 100%; /* Largura total da tabela */
+	border-collapse: collapse; /* Remove espaços entre bordas */
+}
+
+/* Estilos para as células da tabela */
+.top-table th, .top-table td {
+	border: 1px solid #ddd; /* Adiciona borda às células */
+	padding: 8px; /* Adiciona padding interno */
+}
+
+/* Estilos para o cabeçalho das colunas */
+.top-table th {
+	background-color: #333; /* Cor de fundo do cabeçalho */
+	color: white; /* Cor do texto do cabeçalho */
+	text-align: center; /* Centraliza o texto */
 }
