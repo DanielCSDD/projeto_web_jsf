@@ -132,3 +132,15 @@ main {
 	color: white; /* Cor do texto do cabeçalho */
 	text-align: center; /* Centraliza o texto */
 }
+
+/* Aplica um espaçamento de 5px entre os botões */
+.spacing-buttons .ui-button, .spacing-buttons button {
+	margin-right: 5px; /* Espaçamento à direita */
+	margin-bottom: 5px; /* Espaçamento inferior para garantir espaçamento em colunas também */
+}
+
+/* Remove o último espaçamento à direita para o último botão dentro de um contêiner */
+.spacing-buttons .ui-button:last-child, .spacing-buttons button:last-child {
+	margin-right: 0; /* Remove o espaço à direita */
+	margin-bottom: 0; /* Remove o espaço inferior */
+}
