@@ -71,6 +71,10 @@ public class ContatoBean implements Serializable {
         FacesContext.getCurrentInstance().getExternalContext().redirect(this.CONTEXTPATH + "/pages/contato/editar.xhtml");
     }
 
+    public void contatoExcluir(Contato contato){
+        this.contato = contato;
+    }
+
     // Método para excluir o contato
     public void excluir() throws IOException {
         this.usuarioService.excluir(this.contato);
