@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/WEB-INF/template/template.xhtml">
+    <ui:define name="content">
+        <div class="form-page">
+            <div class="form-container">
+                <h1>Novo Contato</h1>
+                <h:form>
+                    <h:panelGrid columns="2">
+                        <h:outputLabel for="id" value="Id:" />
+                        <h:inputText id="id" value="#{contatoBean.contato.id}" styleClass="input-field" readonly="true"/>
+                        <h:outputLabel for="name" value="Nome:" />
+                        <h:inputText id="name" value="#{contatoBean.contato.nome}" styleClass="input-field"/>
+                        <h:outputLabel for="email" value="Email:" />
+                        <h:inputText id="email" value="#{contatoBean.contato.email}" styleClass="input-field"/>
+                        <h:outputLabel for="phone" value="Telefone:" />
+                        <h:inputText id="phone" value="#{contatoBean.contato.telefone}" styleClass="input-field"/>
+                        <h:outputLabel for="mobile" value="Celular:" />
+                        <h:inputText id="mobile" value="#{contatoBean.contato.celular}" styleClass="input-field"/>
+                    </h:panelGrid>
+                    <div class="form-buttons">
+                        <p:commandButton
+                                id="btn-limpar"
+                                icon="pi pi-times"
+                                action="#{contatoBean.limparFormulario()}"
+                                styleClass="clear-button" />
+                        <p:tooltip for="btn-limpar" value="Limpar" position="top"/>
+                        <p:commandButton
+                                id="btn-salar_edicao"
+                                icon="pi pi-plus"
+                                action="#{contatoBean.salvar()}"
+                                ajax="true"
+                                styleClass="save-button" />
+                        <p:tooltip for="btn-salar_edicao" value="Salvar" position="top"/>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>
