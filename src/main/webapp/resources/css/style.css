@@ -156,3 +156,27 @@ main {
 .button-container .ui-button, .button-container button {
 	margin-left: 5px; /* Espaçamento entre os botões */
 }
+
+/* Container do cabeçalho */
+.header-content {
+	display: flex; /* Define o display como flex para alinhar o conteúdo */
+	justify-content: space-between; /* Espaço entre os itens */
+	align-items: center; /* Alinha itens verticalmente ao centro */
+	width: 100%; /* Largura total */
+}
+
+/* Estilos para o botão de logout */
+.logout-button {
+	margin-left: auto; /* Margem à esquerda para empurrar o botão à direita */
+	background-color: #d9534f; /* Cor do botão */
+	color: #fff; /* Cor do texto */
+	border: none; /* Remove a borda */
+	padding: 10px 20px; /* Padding interno */
+	cursor: pointer; /* Cursor de mãozinha */
+	border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Estilos para o botão no estado hover */
+.logout-button:hover {
+	background-color: #c9302c; /* Cor no estado hover */
+}

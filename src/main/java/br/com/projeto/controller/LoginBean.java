@@ -82,7 +82,7 @@ public class LoginBean implements Serializable {
     public String login() {
         this.loginAutenticado = this.loginDAO.findByUsername(this.username);
         logger.info("Tentando login com usuário: " + loginAutenticado.getUsername());
-        if  (loginAutenticado != null && authService.authenticate(username, password, loginAutenticado)) {
+        if (loginAutenticado != null && authService.authenticate(username, password, loginAutenticado)) {
             try {
                 this.setLogado(true);
                 logger.info("Login bem-sucedido para usuário: " + this.loginAutenticado.getUsername());
@@ -98,10 +98,11 @@ public class LoginBean implements Serializable {
         }
     }
 
+
     public void logout() {
         try {
             FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-            FacesContext.getCurrentInstance().getExternalContext().redirect(CONTEXTPATH + "/pages/login/login.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect(this.CONTEXTPATH + "/pages/login/login.xhtml");
         } catch (IOException e) {
             e.printStackTrace();
         }
