@@ -23,15 +23,13 @@
                         <p:commandButton
                                 id="btn-limpar"
                                 icon="pi pi-times"
-                                value="Limpar"
                                 action="#{contatoBean.limparFormulario()}"
                                 styleClass="clear-button" />
                         <p:tooltip for="btn-limpar" value="Limpar" position="top"/>
                         <p:commandButton
                                 id="btn-salvar"
                                 icon="pi pi-plus"
-                                alue="Salvar"
-                                action="#{contatoBean.novo()}"
+                                action="#{contatoBean.salvar()}"
                                 styleClass="save-button" />
                         <p:tooltip for="btn-salvar" value="Salvar" position="top"/>
                     </div>
