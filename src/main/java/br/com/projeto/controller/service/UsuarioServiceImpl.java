@@ -13,12 +13,12 @@ public class UsuarioServiceImpl implements IObjetoPersistencia<Contato>{
 
     @Override
     public void salvar(Contato obj) {
-        this.em.persist(obj);
+        this.em.merge(obj);
     }
 
     @Override
     public void excluir(Contato obj) {
-
+        this.em.remove(obj);
     }
 
     @Override
