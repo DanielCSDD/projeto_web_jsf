@@ -6,62 +6,85 @@
       xmlns:p="http://primefaces.org/ui">
 <ui:composition template="/WEB-INF/template/template.xhtml">
     <ui:define name="content">
-        <div class="home-page">
-            <div class="home-container">
-                <div class="table-title">Contatos da Agenda</div>
-                <h:dataTable value="#{contatoBean.contatos}" var="contato" styleClass="top-table">
-                    <h:column>
-                        <f:facet name="header">Nome</f:facet>
-                        <h:outputText value="#{contato.nome}" />
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Email</f:facet>
-                        <h:outputText value="#{contato.email}" />
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Telefone</f:facet>
-                        <h:outputText value="#{contato.telefone}" />
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Celular</f:facet>
-                        <h:outputText value="#{contato.celular}" />
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Ações</f:facet>
-                        <div class="spacing-buttons">
-                            <p:commandButton
-                                    id="btn-alterar"
-                                    icon="pi pi-refresh"
-                                    title="Alterar"
-                                    action="#{loginBean.login}"/>
-                            <p:tooltip for="btn-alterar" value="Alterar" position="top"/>
-                            <p:commandButton
-                                    id="btn-excluir"
-                                    icon="pi pi-trash"
-                                    title="Excluir"
-                                    styleClass="ui-button-danger"
-                                    action="#{loginBean.login}"/>
-                            <p:tooltip for="btn-excluir" value="Excluir" position="top"/>
-                        </div>
-                    </h:column>
-                </h:dataTable>
-                <div class="button-container">
-                    <p:commandButton
-                            id="btn-novo"
-                            icon="pi pi-plus"
-                            title="Novo"
-                            action="#{contatoBean.redirectCadastro()}"/>
-                    <p:tooltip for="btn-novo" value="Novo Contato" position="top"/>
-                    <p:commandButton
-                            id="btn-pdf"
-                            icon="pi pi-file-pdf"
-                            title="PDF"
-                            styleClass="ui-button-secondary"
-                            action="#{loginBean.login}"/>
-                    <p:tooltip for="btn-pdf" value="Download PDF" position="top"/>
+        <h:form id="form">
+            <div class="home-page">
+                <div class="home-container">
+                    <div class="table-title">Contatos da Agenda</div>
+                    <h:dataTable id="tabelaContatos" value="#{contatoBean.contatos}" var="contato" styleClass="top-table">
+                        <h:column>
+                            <f:facet name="header">Nome</f:facet>
+                            <h:outputText value="#{contato.nome}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Email</f:facet>
+                            <h:outputText value="#{contato.email}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Telefone</f:facet>
+                            <h:outputText value="#{contato.telefone}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Celular</f:facet>
+                            <h:outputText value="#{contato.celular}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Ações</f:facet>
+                            <div class="spacing-buttons">
+                                <p:commandButton
+                                        id="btn-alterar"
+                                        icon="pi pi-refresh"
+                                        title="Alterar"
+                                        action="#{contatoBean.redirectEditar(contato)}" />
+                                <p:tooltip id="tltp-alterar" for="btn-alterar" value="Alterar" position="top" />
+                                <p:commandButton
+                                        id="btn-excluir"
+                                        icon="pi pi-trash"
+                                        title="Excluir"
+                                        styleClass="ui-button-danger"
+                                        onclick="PF('dlg3').show()"/>
+                                <p:tooltip id="tltp-excluir" for="btn-excluir" value="Excluir" position="top" />
+                            </div>
+                        </h:column>
+                    </h:dataTable>
+                    <div class="button-container">
+                        <p:commandButton
+                                id="btn-novo"
+                                icon="pi pi-plus"
+                                title="Novo"
+                                action="#{contatoBean.redirectCadastrar()}" />
+                        <p:tooltip id="tltp-novo" for="btn-novo" value="Novo Contato" position="top" />
+                        <p:commandButton
+                                id="btn-pdf"
+                                icon="pi pi-file-pdf"
+                                title="PDF"
+                                styleClass="ui-button-secondary"
+                                action="#{loginBean.login}" />
+                        <p:tooltip id="tltp-pdf" for="btn-pdf" value="Download PDF" position="top" />
+                    </div>
                 </div>
             </div>
-        </div>
+        </h:form>
+
+        <p:dialog header="Header" widgetVar="dlg3" minHeight="40" width="350" showEffect="fade" focus="btnYes" closeOnEscape="true">
+            <h:panelGrid columns="2">
+                <h:outputLabel for="id" value="Id:" />
+                <h:inputText id="id" value="#{contatoBean.contato.id}" styleClass="input-field" readonly="true"/>
+                <h:outputLabel for="name" value="Nome:" />
+                <h:inputText id="name" value="#{contatoBean.contato.nome}" styleClass="input-field" readonly="true"/>
+                <h:outputLabel for="email" value="Email:" />
+                <h:inputText id="email" value="#{contatoBean.contato.email}" styleClass="input-field" readonly="true"/>
+                <h:outputLabel for="phone" value="Telefone:" />
+                <h:inputText id="phone" value="#{contatoBean.contato.telefone}" styleClass="input-field" readonly="true"/>
+                <h:outputLabel for="mobile" value="Celular:" />
+                <h:inputText id="mobile" value="#{contatoBean.contato.celular}" styleClass="input-field" readonly="true"/>
+            </h:panelGrid>
+
+            <f:facet name="footer">
+                <p:commandButton type="button" value="No" styleClass="ui-button-flat mr-2" style="width: 6rem" />
+                <p:commandButton id="btnYes" type="button" value="Yes" style="width: 5rem" />
+            </f:facet>
+        </p:dialog>
+
     </ui:define>
 </ui:composition>
 </html>
