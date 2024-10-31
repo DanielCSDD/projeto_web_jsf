@@ -144,3 +144,15 @@ main {
 	margin-right: 0; /* Remove o espaço à direita */
 	margin-bottom: 0; /* Remove o espaço inferior */
 }
+
+/* Estilos para alinhar botões à direita abaixo da tabela */
+.button-container {
+	display: flex;
+	justify-content: flex-end; /* Alinha os botões à direita */
+	margin-top: 10px; /* Espaçamento superior para separar da tabela */
+	margin-right: 52px; /* Espaçamento à direita para alinhar com a última coluna da tabela */
+}
+
+.button-container .ui-button, .button-container button {
+	margin-left: 5px; /* Espaçamento entre os botões */
+}

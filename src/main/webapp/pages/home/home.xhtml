@@ -45,6 +45,21 @@
                         </div>
                     </h:column>
                 </h:dataTable>
+                <div class="button-container">
+                    <p:commandButton
+                            id="btn-novo"
+                            icon="pi pi-plus"
+                            title="Novo"
+                            action="#{loginBean.login}"/>
+                    <p:tooltip for="btn-novo" value="Novo Contato" position="top"/>
+                    <p:commandButton
+                            id="btn-pdf"
+                            icon="pi pi-file-pdf"
+                            title="PDF"
+                            styleClass="ui-button-secondary"
+                            action="#{loginBean.login}"/>
+                    <p:tooltip for="btn-pdf" value="Download PDF" position="top"/>
+                </div>
             </div>
         </div>
     </ui:define>
