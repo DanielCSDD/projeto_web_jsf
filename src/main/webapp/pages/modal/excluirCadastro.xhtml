@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <p:dialog id="modalExcluir" header="Header" widgetVar="dlg3" minHeight="40" width="350" showEffect="fade" focus="btnYes" closeOnEscape="true">
+        <h:panelGrid id="painelRegistro" columns="2">
+            <h:outputLabel for="id" value="Id:" />
+            <h:outputLabel id="id" value="#{contatoBean.contato.id}" styleClass="input-field"/>
+            <h:outputLabel for="name" value="Nome:" />
+            <h:outputLabel id="name" value="#{contatoBean.contato.nome}" styleClass="input-field"/>
+            <h:outputLabel for="email" value="Email:" />
+            <h:outputLabel id="email" value="#{contatoBean.contato.email}" styleClass="input-field"/>
+            <h:outputLabel for="phone" value="Telefone:" />
+            <h:outputLabel id="phone" value="#{contatoBean.contato.telefone}" styleClass="input-field"/>
+            <h:outputLabel for="mobile" value="Celular:" />
+            <h:outputLabel id="mobile" value="#{contatoBean.contato.celular}" styleClass="input-field"/>
+        </h:panelGrid>
+
+        <f:facet name="footer">
+            <p:commandButton type="button" value="No" styleClass="ui-button-flat mr-2" style="width: 6rem" />
+            <p:commandButton id="btnYes" type="button" value="Yes" style="width: 5rem" />
+        </f:facet>
+    </p:dialog>
+
+</html>
