@@ -61,7 +61,8 @@
                                 icon="pi pi-file-pdf"
                                 title="PDF"
                                 styleClass="ui-button-secondary"
-                                action="#{loginBean.login}" />
+                                action="#{contatoBean.dowloadPDF()}"
+                                ajax="false"/>
                         <p:tooltip id="tltp-pdf" for="btn-pdf" value="Download PDF" position="top" />
                     </div>
                 </div>

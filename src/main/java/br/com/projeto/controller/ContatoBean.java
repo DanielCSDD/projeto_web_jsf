@@ -5,14 +5,15 @@ import br.com.projeto.controller.service.UsuarioServiceImpl;
 import br.com.projeto.model.Contato;
 import br.com.projeto.model.Usuario;
 import br.com.projeto.model.dao.UsuarioDAO;
+import br.com.projeto.util.DownloadPDF;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.context.FacesContext;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.transaction.Transactional;
 
-import java.io.IOException;
-import java.io.Serializable;
+import java.io.*;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -29,6 +30,8 @@ public class ContatoBean implements Serializable {
 
     private Usuario usuarioLogado;
 
+    private DownloadPDF downloadPDF;;
+
     @Inject
     private transient ContatoServiceImpl contatoService;
 
@@ -38,6 +41,7 @@ public class ContatoBean implements Serializable {
 
     public ContatoBean() {
         this.contato = new Contato();
+        this.downloadPDF = new DownloadPDF();
     }
 
     public Contato getContato() {
@@ -83,12 +87,38 @@ public class ContatoBean implements Serializable {
         FacesContext.getCurrentInstance().getExternalContext().redirect(this.CONTEXTPATH + "/pages/home/home.xhtml");
     }
 
-    private void recuperandoUsuarioLogado() {
-        this.usuarioLogado  = loginBean.getUsuarioLogado();
-    }
-
     @Transactional
     public void redirectHome() throws IOException {
         FacesContext.getCurrentInstance().getExternalContext().redirect(this.CONTEXTPATH + "/pages/home/home.xhtml");
+    }
+
+    @Transactional
+    public void dowloadPDF() throws IOException {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        HttpServletResponse response = (HttpServletResponse) facesContext.getExternalContext().getResponse();
+
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+
+            // Passa o PDF para o método de download
+            InputStream inputStream = new ByteArrayInputStream(this.downloadPDF.exportarPDF(baos, this.getContatos()));
+            OutputStream outputStream = response.getOutputStream();
+
+            response.setContentType("application/pdf");
+            response.setHeader("Content-Disposition", "attachment;filename=\"agendaweb_contatos.pdf\"");
+
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, bytesRead);
+            }
+
+            facesContext.responseComplete();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void recuperandoUsuarioLogado() {
+        this.usuarioLogado  = loginBean.getUsuarioLogado();
     }
 }
