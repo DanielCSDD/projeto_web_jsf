@@ -62,7 +62,7 @@ public class ContatoBean implements Serializable {
         recuperandoUsuarioLogado();
         this.contato.setUsuario(this.usuarioLogado);
         this.contatoService.salvar(this.contato);
-        limparFormulario();
+        redirectHome();
         FacesContext.getCurrentInstance().getExternalContext().redirect(this.CONTEXTPATH + "/pages/home/home.xhtml");
     }
 
@@ -86,7 +86,9 @@ public class ContatoBean implements Serializable {
     private void recuperandoUsuarioLogado() {
         this.usuarioLogado  = loginBean.getUsuarioLogado();
     }
-    public void limparFormulario(){
-        this.contato = new Contato();
+
+    @Transactional
+    public void redirectHome() throws IOException {
+        FacesContext.getCurrentInstance().getExternalContext().redirect(this.CONTEXTPATH + "/pages/home/home.xhtml");
     }
 }
