@@ -22,21 +22,19 @@
 
             <f:facet name="footer">
                 <p:commandButton id="btnCancel"
-                                 type="button"
                                  icon="pi pi-times"
                                  title="Cancelar"
                                  style="width: 6rem"
                                  onclick="PF('modalExcluir').hide();"/>
                 <p:tooltip id="tltpm-cancelar" for="btnCancel" value="Cancelar" position="top" />
                 <p:commandButton id="btnYes"
-                                 type="button"
                                  icon="pi pi-trash"
                                  title="Excluir"
                                  styleClass="ui-button-danger"
                                  style="width: 5rem"
-                                 update=":form"
-                                 process="@this"
-                                 action="#{contatoBean.excluir()}"/>
+                                 action="#{contatoBean.excluir}">
+
+                </p:commandButton>
                 <p:tooltip id="tltpm-excluir" for="btnYes" value="Excluir" position="top" />
             </f:facet>
         </p:dialog>
