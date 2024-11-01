@@ -43,7 +43,8 @@
                                         styleClass="ui-button-danger"
                                         onclick="PF('dlg3').show()"
                                         actionListener="#{contatoBean.contatoExcluir(contato)}"
-                                        update="painelRegistro"/>
+                                        process="@this"
+                                        update=":modalCadastroExcluir:painelRegistro"/>
                                 <p:tooltip id="tltp-excluir" for="btn-excluir" value="Excluir" position="top" />
                             </div>
                         </h:column>
