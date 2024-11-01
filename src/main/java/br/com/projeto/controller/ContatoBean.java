@@ -58,6 +58,7 @@ public class ContatoBean implements Serializable {
 
     public void redirectCadastrar() throws IOException {
         logger.info("Redirecionando para tela de cadastro!");
+        this.contato = new Contato();
         FacesContext.getCurrentInstance().getExternalContext().redirect(this.CONTEXTPATH + "/pages/contato/novo.xhtml");
     }
 

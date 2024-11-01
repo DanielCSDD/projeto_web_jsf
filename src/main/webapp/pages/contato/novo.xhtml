@@ -10,14 +10,14 @@
                 <h1>Novo Contato</h1>
                 <h:form>
                     <h:panelGrid columns="2">
-                        <h:outputLabel for="name" value="Nome:" />
-                        <h:inputText id="name" value="#{contatoBean.contato.nome}" styleClass="input-field"/>
-                        <h:outputLabel for="email" value="Email:" />
-                        <h:inputText id="email" value="#{contatoBean.contato.email}" styleClass="input-field"/>
-                        <h:outputLabel for="phone" value="Telefone:" />
-                        <h:inputText id="phone" value="#{contatoBean.contato.telefone}" styleClass="input-field"/>
-                        <h:outputLabel for="mobile" value="Celular:" />
-                        <h:inputText id="mobile" value="#{contatoBean.contato.celular}" styleClass="input-field"/>
+                        <p:outputLabel for="name" value="Nome:" />
+                        <p:inputText id="name" value="#{contatoBean.contato.nome}" styleClass="input-field"/>
+                        <p:outputLabel for="email" value="Email:" />
+                        <p:inputText id="email" value="#{contatoBean.contato.email}" styleClass="input-field"/>
+                        <p:outputLabel for="phone" value="Telefone:" />
+                        <p:inputMask id="phone" value="#{contatoBean.contato.telefone}" mask="(99)9999-9999" maxlength="13" styleClass="input-field"/>
+                        <p:outputLabel for="mobile" value="Celular:" />
+                        <p:inputMask id="mobile" value="#{contatoBean.contato.celular}" mask="(99)99999-9999" maxlength="14" styleClass="input-field"/>
                     </h:panelGrid>
                     <div class="form-buttons">
                         <p:commandButton
