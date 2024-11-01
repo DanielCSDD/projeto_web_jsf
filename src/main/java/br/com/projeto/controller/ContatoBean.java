@@ -1,5 +1,6 @@
 package br.com.projeto.controller;
 
+import br.com.projeto.controller.service.ContatoServiceImpl;
 import br.com.projeto.controller.service.UsuarioServiceImpl;
 import br.com.projeto.model.Contato;
 import br.com.projeto.model.Usuario;
@@ -29,7 +30,7 @@ public class ContatoBean implements Serializable {
     private Usuario usuarioLogado;
 
     @Inject
-    private transient UsuarioServiceImpl usuarioService;
+    private transient ContatoServiceImpl contatoService;
 
     private static final Logger logger = Logger.getLogger(ContatoBean.class.getName());
 
@@ -60,7 +61,7 @@ public class ContatoBean implements Serializable {
     public void salvar() throws IOException {
         recuperandoUsuarioLogado();
         this.contato.setUsuario(this.usuarioLogado);
-        this.usuarioService.salvar(this.contato);
+        this.contatoService.salvar(this.contato);
         limparFormulario();
         FacesContext.getCurrentInstance().getExternalContext().redirect(this.CONTEXTPATH + "/pages/home/home.xhtml");
     }
@@ -76,8 +77,9 @@ public class ContatoBean implements Serializable {
     }
 
     // Método para excluir o contato
+    @Transactional
     public void excluir() throws IOException {
-        this.usuarioService.excluir(this.contato);
+        this.contatoService.excluir(this.contato);
         FacesContext.getCurrentInstance().getExternalContext().redirect(this.CONTEXTPATH + "/pages/home/home.xhtml");
     }
 

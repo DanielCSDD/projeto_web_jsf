@@ -17,7 +17,7 @@ public class UsuarioDAO implements Serializable {
 
     @Transactional
     public Usuario findByUsername(String username) {
-        return em.createQuery("SELECT u FROM User u WHERE u.username = :username", Usuario.class)
+        return em.createQuery("SELECT u FROM Usuario u WHERE u.username = :username", Usuario.class)
                 .setParameter("username", username)
                 .getSingleResult();
     }

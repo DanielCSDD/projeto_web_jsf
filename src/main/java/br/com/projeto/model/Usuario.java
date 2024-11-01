@@ -19,7 +19,7 @@ public class Usuario {
     @OneToOne
     @JoinColumn(name = "id_login")
     private Login login;
-    @OneToMany
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Contato> contatos;
 
     public Long getId() {

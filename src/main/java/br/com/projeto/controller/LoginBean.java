@@ -2,6 +2,7 @@ package br.com.projeto.controller;
 
 import br.com.projeto.controller.service.IAuthService;
 import br.com.projeto.model.Login;
+import br.com.projeto.model.Contato;
 import br.com.projeto.model.Usuario;
 import br.com.projeto.model.dao.LoginDAO;
 import jakarta.enterprise.context.SessionScoped;
