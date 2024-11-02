@@ -68,7 +68,6 @@ public class ContatoBean implements Serializable {
         this.contato.setUsuario(this.usuarioLogado);
         this.contatoService.salvar(this.contato);
         redirectHome();
-        FacesContext.getCurrentInstance().getExternalContext().redirect(this.CONTEXTPATH + "/pages/home/home.xhtml");
     }
 
     @Transactional

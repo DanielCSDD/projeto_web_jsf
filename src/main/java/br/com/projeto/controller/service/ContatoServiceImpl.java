@@ -2,12 +2,18 @@ package br.com.projeto.controller.service;
 
 import br.com.projeto.model.Contato;
 import br.com.projeto.model.dao.ContatoDAO;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.inject.Default;
 import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
 import java.util.List;
 
+@Named
+@ApplicationScoped
+@Default
 public class ContatoServiceImpl implements IObjetoPersistencia<Contato>{
 
     @PersistenceContext(unitName = "AgendawebDS")
@@ -25,7 +31,11 @@ public class ContatoServiceImpl implements IObjetoPersistencia<Contato>{
 
     @Override
     public void salvar(Contato obj) {
-        this.em.merge(obj);
+        if(obj.getId() == null){
+            this.em.persist(obj);
+        } else {
+            this.em.merge(obj);
+        }
     }
 
     @Override
